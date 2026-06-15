@@ -165,6 +165,20 @@ body {
   opacity: 0.7;
 }
 
+/* Single Chat View Layout */
+.single-chat-view {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 600px;
+}
+
+.single-chat-view .chat-room {
+  width: 100%;
+  max-width: 800px;
+  height: 650px;
+}
+
 /* 2x3 Grid Layout */
 .chat-grid {
   display: grid;

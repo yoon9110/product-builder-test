@@ -139,7 +139,6 @@ function Login({ onLogin }: { onLogin: (user: User) => void }) {
 
 function App() {
   const [user, setUser] = useState<User | null>(null);
-  const grades = [1, 2, 3, 4, 5, 6];
 
   if (!user) {
     return <Login onLogin={setUser} />;
@@ -149,17 +148,15 @@ function App() {
     <div className="app-container">
       <header className="main-header">
         <div className="header-content">
-          <h1>📚 학년별 소통 공간</h1>
+          <h1>📚 {user.grade}학년 소통 공간</h1>
           <div className="user-profile">
-            <span>{user.nickname} ({user.grade}학년)</span>
+            <span>{user.nickname}</span>
             <button onClick={() => setUser(null)} className="logout-button">로그아웃</button>
           </div>
         </div>
       </header>
-      <main className="chat-grid">
-        {grades.map((grade) => (
-          <ChatRoom key={grade} grade={grade} currentUser={user} />
-        ))}
+      <main className="single-chat-view">
+        <ChatRoom grade={user.grade} currentUser={user} />
       </main>
     </div>
   )
